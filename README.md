@@ -73,3 +73,73 @@ You can deploy the contents of the build directory to any static hosting service
 - Vercel
 - GitHub Pages
 - Amazon S3
+
+## Deploying Static Web Artifacts to Azure Storage Account
+
+1. Log in to Azure
+
+First, log in to your Azure account using the Azure CLI.
+
+```sh
+az login
+```
+
+2. Create a Resource Group
+
+Create a resource group if you don't already have one. Replace react-claims-app with your desired resource group name and eastasia with your preferred region.
+
+```sh
+az group create --name react-claims-app --location eastasia
+```
+
+3. Create a Storage Account
+
+Create a storage account. Replace reactclaimsapp with your desired storage account name.
+
+```sh
+az storage account create --name reactclaimsapp --resource-group react-claims-app --location eastasia --sku Standard_LRS --kind StorageV2
+```
+
+4. Enable Static Website Hosting
+
+Enable static website hosting on the storage account.
+
+```sh
+az storage blob service-properties update --account-name reactclaimsapp --static-website --index-document index.html --404-document 404.html
+```
+
+5. Build Your React App
+
+Build your React app to generate the static files.
+
+```sh
+npm run build
+```
+
+6. Upload Your Files
+
+Upload the generated files from the build directory to the $web container in your storage account.
+
+```sh
+az storage blob upload-batch -d '$web' --account-name reactclaimsapp -s ./build
+```
+
+7. Ensure All Files Are Publicly Accessible
+
+Set the permissions for the $web container to allow public access.
+
+```sh
+az storage blob set-permission --container-name '$web' --account-name reactclaimsapp --public-access blob
+```
+
+8. Get the URL of Your Static Website
+
+Retrieve the URL where your static website is hosted.
+
+```sh
+az storage account show --name reactclaimsapp --resource-group react-claims-app --query "primaryEndpoints.web" --output tsv
+```
+
+The output will be the URL where your static website is hosted, for example: https://reactclaimsapp.z7.web.core.windows.net
+
+
