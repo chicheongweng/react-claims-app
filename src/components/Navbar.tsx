@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CustomNavbar: React.FC = () => {
+  const [loggedInUser, setLoggedInUser] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem('loggedInUser');
+    if (user) {
+      setLoggedInUser(user);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setLoggedInUser(null);
+    localStorage.removeItem('loggedInUser');
+    alert('Logout successful');
+    navigate('/');
+  };
+
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={Link} to="/">Insurance Co.</Navbar.Brand>
@@ -20,7 +37,14 @@ const CustomNavbar: React.FC = () => {
             <NavDropdown.Item as={Link} to="/careers">Careers</NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        <Button variant="outline-success">Login</Button>
+        {loggedInUser ? (
+          <>
+            <span className="navbar-text mr-3">Hello, {loggedInUser}</span>
+            <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
+          </>
+        ) : (
+          <Button variant="outline-success" onClick={() => navigate('/login')}>Login</Button>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );

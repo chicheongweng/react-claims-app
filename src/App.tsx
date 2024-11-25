@@ -7,6 +7,7 @@ import Support from './components/Support';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import Careers from './components/Careers';
+import Login from './components/Login';
 import './App.css';
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <CustomNavbar />
         <header className="App-header">
           <Routes>
+            <Route path="/login" element={<Login />} />
             <Route path="/claims" element={<Claims />} />
             <Route path="/policies" element={<Policies />} />
             <Route path="/support" element={<Support />} />
