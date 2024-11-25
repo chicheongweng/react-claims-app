@@ -13,7 +13,7 @@ const CustomNavbar: React.FC = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" fixed="top">
       <Navbar.Brand as={Link} to="/">Insurance Co.</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
