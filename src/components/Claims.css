@@ -1,0 +1,38 @@
+.claims-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.claim-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.claim-form label {
+  margin-top: 10px;
+}
+
+.claim-form input,
+.claim-form textarea {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.claim-form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.claim-form button:hover {
+  background-color: #0056b3;
+}
