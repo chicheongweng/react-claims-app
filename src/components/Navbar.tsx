@@ -9,7 +9,6 @@ const CustomNavbar: React.FC = () => {
 
   const handleLogout = () => {
     logout();
-    alert('Logout successful');
     navigate('/');
   };
 

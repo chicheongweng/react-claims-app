@@ -8,7 +8,6 @@ const Claims: React.FC = () => {
 
   useEffect(() => {
     if (!loggedInUser) {
-      alert('You must be logged in to view this page');
       navigate('/login');
     }
   }, [loggedInUser, navigate]);
