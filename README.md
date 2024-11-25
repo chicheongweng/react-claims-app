@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with react-claims-app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -44,3 +44,32 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Generating Static Artifacts
+
+To generate static artifacts for deployment, follow these steps:
+
+1. Build the application:
+
+   ```sh
+   npm run build
+   ```
+
+2. This will create a build directory with the production build of your application.
+
+Serve the static files:
+
+You can use a static server to serve the files in the build directory. For example, you can use the serve package:
+```sh
+npm install -g serve
+serve
+```
+This will start a server and serve your static files on http://localhost:5000.
+
+Deployment
+You can deploy the contents of the build directory to any static hosting service, such as:
+
+- Netlify
+- Vercel
+- GitHub Pages
+- Amazon S3
