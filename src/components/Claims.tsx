@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 const Claims: React.FC = () => {
-  const [loggedInUser, setLoggedInUser] = useState<string | null>(null);
+  const { loggedInUser } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const user = localStorage.getItem('loggedInUser');
-    if (!user) {
+    if (!loggedInUser) {
       alert('You must be logged in to view this page');
       navigate('/login');
-    } else {
-      setLoggedInUser(user);
     }
-  }, [navigate]);
+  }, [loggedInUser, navigate]);
 
   if (!loggedInUser) {
     return null;

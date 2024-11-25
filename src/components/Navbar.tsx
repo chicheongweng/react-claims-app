@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 const CustomNavbar: React.FC = () => {
-  const [loggedInUser, setLoggedInUser] = useState<string | null>(null);
+  const { loggedInUser, logout } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const user = localStorage.getItem('loggedInUser');
-    if (user) {
-      setLoggedInUser(user);
-    }
-  }, []);
-
   const handleLogout = () => {
-    setLoggedInUser(null);
-    localStorage.removeItem('loggedInUser');
+    logout();
     alert('Logout successful');
     navigate('/');
   };

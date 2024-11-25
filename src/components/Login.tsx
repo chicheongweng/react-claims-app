@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 const users = [
   { username: 'user1', password: 'password1' },
@@ -11,11 +12,12 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = () => {
     const user = users.find(u => u.username === username && u.password === password);
     if (user) {
-      localStorage.setItem('loggedInUser', user.username);
+      login(user.username);
       alert('Login successful');
       navigate('/claims');
     } else {
