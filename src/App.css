@@ -1,3 +1,4 @@
+/* Existing styles */
 .App {
   text-align: center;
 }
@@ -35,4 +36,60 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Global styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px; /* Set a base font size */
+}
+
+h1, h2, h3, h4, h5, h6, p, div {
+  font-family: inherit;
+  font-size: inherit; /* Ensure all text elements inherit the base font size */
+}
+
+/* Claims form styles */
+.claims-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.claim-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px; /* Increase the width of the form */
+}
+
+.claim-form label {
+  margin-top: 10px;
+}
+
+.claim-form input,
+.claim-form textarea {
+  padding: 10px; /* Increase padding for larger input boxes */
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Make input boxes take full width of the form */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.claim-form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.claim-form button:hover {
+  background-color: #0056b3;
 }
