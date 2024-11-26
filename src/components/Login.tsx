@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
-//import './Login.css'; // Import the CSS file for styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const users = [
@@ -27,26 +26,36 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <div className="login-form">
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={handleLogin}>Login</button>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-12 col-md-6 col-lg-4">
+          <h2 className="text-center">Login</h2>
+          <form className="login-form">
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">Username</label>
+              <input
+                id="username"
+                type="text"
+                className="form-control"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input
+                id="password"
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type="button" className="btn btn-primary w-100" onClick={handleLogin}>Login</button>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -9,8 +9,8 @@ import Contact from './components/Contact';
 import Careers from './components/Careers';
 import Login from './components/Login';
 import { AuthProvider } from './AuthContext';
-//import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'; // Ensure global CSS is imported
 
 const App: React.FC = () => {
   return (
@@ -28,10 +28,14 @@ const App: React.FC = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/" element={
-                <>
-                  <h1>Welcome to the Insurance Claims App</h1>
-                  <p>Submit your insurance claims easily and quickly.</p>
-                </>
+                <div className="container">
+                  <div className="row justify-content-center">
+                    <div className="col-12 text-center">
+                      <h1>Welcome to the Insurance Claims App</h1>
+                      <p>Submit your insurance claims easily and quickly.</p>
+                    </div>
+                  </div>
+                </div>
               } />
             </Routes>
           </header>
