@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CustomNavbar: React.FC = () => {
   const { loggedInUser, logout } = useAuth();

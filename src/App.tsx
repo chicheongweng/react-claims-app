@@ -9,7 +9,8 @@ import Contact from './components/Contact';
 import Careers from './components/Careers';
 import Login from './components/Login';
 import { AuthProvider } from './AuthContext';
-import './App.css';
+//import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App: React.FC = () => {
   return (
