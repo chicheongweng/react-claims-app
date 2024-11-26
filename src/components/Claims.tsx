@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
-//import './Claims.css'; // Import the CSS file for styling
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Claims: React.FC = () => {
   const { loggedInUser } = useAuth();
