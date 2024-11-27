@@ -10,7 +10,7 @@ import Careers from './components/Careers';
 import Login from './components/Login';
 import { AuthProvider } from './AuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'; // Ensure global CSS is imported
+import './App.css';
 
 const App: React.FC = () => {
   return (
